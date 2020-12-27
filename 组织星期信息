@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char *p[] ={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+	int repeat;		//输入几个数
+	int i,j;		//用于循环和数组下标
+	char tmp[50];	//输入的字符串
+	scanf("%d",&repeat);
+    getchar();// 一
+	for(i=0;i<repeat;i++)
+	{
+		gets(tmp);
+		for(j=0;j<7;j++)
+		{
+			if(strcmp(tmp,p[j])==0)
+			{	printf("%d\n",j+1);	break;	}
+			else if(j==6)
+				printf("-1\n");
+		}
+	}
+	return 0;
+}
