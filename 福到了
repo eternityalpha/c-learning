@@ -1,0 +1,65 @@
+#include<stdio.h>
+int main()
+{
+    char ch,a[100][101]={'\0'},b[100][101]={'\0'};
+    int n;
+
+    scanf("%c %d",&ch,&n);
+    getchar();//换行  1**
+    for(int i=0;i<n;i++)
+        gets(a[i]);//自动以换行为划分,success
+
+  /*  for(int i=0;i<n;i++)
+    {
+        puts(a[i]);//自动以换行划分
+    } */
+
+    int box[100][100]={0};
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(a[i][j]!=' ')
+            {
+                box[i][j]=1;//tag the char;
+            }
+
+        }
+    }
+
+    int ex[100][100]={0};
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            if(box[i][j]!=0)
+                ex[n-i-1][n-j-1]=1;
+
+    int flag=0;// no need exchange
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            if(ex[i][j]!=box[i][j])
+                flag=1;
+
+    if(flag==0)
+        printf("bu yong dao le\n");
+
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(ex[i][j]!=0)
+            {
+                b[i][j]=ch;
+            }
+            else
+                b[i][j]=' ';
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+            printf("%c",b[i][j]);
+        if(i!=n-1)
+            printf("\n");
+    }
+    return 0;
+}
