@@ -1,0 +1,42 @@
+#include<stdio.h>
+int po(int x,int y)
+{
+    int acc=1,i;
+    for(i=1;i<=y;i++)
+        acc=acc*x;
+    return acc;
+}//******定义一个函数，pow(),避免运行超时
+int main()
+{
+    int n;
+    scanf("%d",&n);
+
+    int minn,maxx;
+    switch(n)
+    {
+        case 3:minn=100;maxx=999;break;
+        case 4:minn=1000;maxx=9999;break;
+        case 5:minn=10000;maxx=99999;break;
+        case 6:minn=100000;maxx=999999;break;
+        case 7:minn=1000000;maxx=9999999;break;
+    }
+    int sum=0,wei,i,ori;
+    for(i=minn;i<=maxx;i++)
+    {
+        ori=i;//******
+        while(i)
+        {
+            wei=i%10;
+            sum+=pow(wei,n);
+            i=i/10;
+        }
+        i=ori;//******,若无ori,i==0,i++; 0,1,0,1
+        if(sum==i)
+        {
+            printf("%d\n",sum);
+        }
+        sum=0;
+    }
+
+    return 0;
+}
