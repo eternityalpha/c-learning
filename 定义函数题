@@ -1,0 +1,12 @@
+double f( int n, double a[], double x )
+{
+    double sum=0,xiang=1.0;//求连加i=0到i=n ,(a[i]*x^i)
+    int i,j;
+    for(i=0;i<=n;i++)
+    {
+        sum=sum+a[i]*xiang;
+        xiang=xiang*x;//******1
+    }
+    return sum;
+
+}
