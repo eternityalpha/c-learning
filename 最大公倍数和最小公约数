@@ -1,0 +1,13 @@
+int gcd(int x,int y)
+{
+    if(x==0) return 0;
+    else
+        return (y==0)?x:gcd(y,x%y);
+}//最大公倍数
+int gab(int x,int y)
+{
+    int z;
+    z=x*y;
+    return z/gcd(x,y);
+
+}//最小公约数
