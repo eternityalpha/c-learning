@@ -1,0 +1,50 @@
+#include<stdio.h>
+int main()
+{
+    int n;
+
+    scanf("%d",&n);
+
+    int orn=n;
+    int result=0,a[3]={0};//orn,result*****
+    int times=1;//****
+    while(result!=495)//****
+    {
+        int i=0;
+
+        while(orn)//*****
+        {
+            a[i++]=orn%10;
+            orn/=10;
+        }
+        if(a[0]==a[1]&&a[1]==a[2])
+        {
+            printf("1: %d - %d = 0",n,n);//*****
+            break;//only print once
+        }
+        else
+        {
+            for(i=0;i<2;i++)//从小到大
+            {
+                int temp;
+                for(int j=0;j<2-i;j++)
+                {
+                    if(a[j]>a[j+1])
+                    {
+                        temp=a[j];
+                        a[j]=a[j+1];
+                        a[j+1]=temp;
+                    }
+                }
+            }
+
+            int maxx=a[2]*100+a[1]*10+a[0];
+            int minn=a[0]*100+a[1]*10+a[2];
+            result=maxx-minn;
+            printf("%d: %d - %d = %d\n",times++,maxx,minn,result);
+            orn=result;//******
+        }
+    }
+
+    return 0;
+}
