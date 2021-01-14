@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main()
+{
+    double aver;
+    double a,b,c,d,e;
+    while(scanf("%lf%lf%lf%lf%lf",&a,&b,&c,&d,&e)!=EOF)
+    {
+        aver=(a+b+c+d+e)/5.0;
+        printf("%.1lf\n",aver);
+    }
+
+    return 0;
+}
